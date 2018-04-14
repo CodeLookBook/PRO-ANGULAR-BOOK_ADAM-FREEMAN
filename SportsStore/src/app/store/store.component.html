@@ -28,13 +28,14 @@
         <select class="form-control" 
             [value]="productsPerPage"
             (change)="changePageSize($event.target.value)">
-            <option *ngFor="let number of pageNumbers" 
-                value="{{number}}">{{number}} per Page
-            </option>
+            <option value="3"> 3 per Page </option>
+            <option value="4"> 4 per Page </option>
+            <option value="5"> 5 per Page </option>
+            <option value="6"> 6 per Page </option>
         </select>
     </div>
     <div class="btn-group pull-xs-right">
-        <button *ngFor="let page of pageNumbers"
+        <button *counter="let page of pageCount"
             (click)="changePage(page)"
             class="btn btn-outline-primary"
             [class.active]="page == selectedPage">
