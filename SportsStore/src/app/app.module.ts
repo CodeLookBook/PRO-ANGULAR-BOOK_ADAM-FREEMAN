@@ -11,7 +11,7 @@ import { StoreModule } from "./store/store.module";
     AppComponent
   ],
   imports: [
-    BrowserModule, 
+    BrowserModule,
     StoreModule
   ],
   providers: [],
