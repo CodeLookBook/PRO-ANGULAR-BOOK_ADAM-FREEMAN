@@ -1,6 +1,7 @@
 import { NgModule          } from "@angular/core";
 import { ProductRepository } from "./product.repository";
 import { StaticDataSource  } from "./static.datasource";
+import { Cart } from "./cart.model";
 
 /*
 Декоратор @NgModule используется для создания функциональных
@@ -13,7 +14,8 @@ import { StaticDataSource  } from "./static.datasource";
 @NgModule({
     providers: [
         ProductRepository,
-        StaticDataSource
+        StaticDataSource ,
+        Cart
     ]
 })
 export class ModelModule { }
