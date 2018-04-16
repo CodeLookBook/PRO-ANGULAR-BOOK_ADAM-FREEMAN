@@ -7,6 +7,7 @@ import { StoreModule    } from "./store/store.module";
 import { StoreComponent } from "./store/store.component";
 import { CartDetailComponent } from "./store/cart-detail.component";
 import { CheckoutComponent } from "./store/checkout.component";
+import { StoreFirstGuard } from "./store-first.guard";
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import { CheckoutComponent } from "./store/checkout.component";
       { path: "**"      , redirectTo: "/store"           }
     ])
   ],
-  providers: [],
+  providers: [StoreFirstGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
