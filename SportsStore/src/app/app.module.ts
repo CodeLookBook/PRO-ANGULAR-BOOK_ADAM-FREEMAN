@@ -18,10 +18,21 @@ import { StoreFirstGuard } from "./store-first.guard";
     BrowserModule,
     StoreModule,
     RouterModule.forRoot([
-      { path: "store"   , component: StoreComponent      },
-      { path: "cart"    , component: CartDetailComponent },
-      { path: "checkout", component: CheckoutComponent   },
-      { path: "**"      , redirectTo: "/store"           }
+      {
+        path: "store"   , component: StoreComponent,
+        canActivate: [StoreFirstGuard]
+      },
+      {
+        path: "cart"    , component: CartDetailComponent,
+        canActivate: [StoreFirstGuard]
+      },
+      {
+        path: "checkout", component: CheckoutComponent,
+        canActivate: [StoreFirstGuard]
+      },
+      {
+        path: "**"      , redirectTo: "/store",
+      }
     ])
   ],
   providers: [StoreFirstGuard],
