@@ -5,6 +5,8 @@ import { NgModule             } from "@angular/core";
 import { StoreComponent       } from "./store.component";
 import { CounterDirective     } from "./counter.directive";
 import { CartSummaryComponent } from "./cart-summary.component";
+import { CartDetailComponent } from "./cart-detail.component";
+import { CheckoutComponent } from "./checkout.component";
 
 @NgModule({
     imports: [
@@ -15,8 +17,14 @@ import { CartSummaryComponent } from "./cart-summary.component";
     declarations: [
         StoreComponent,
         CounterDirective,
-        CartSummaryComponent
+        CartSummaryComponent,
+        CartDetailComponent,
+        CheckoutComponent
     ],
-    exports: [StoreComponent]
+    exports: [
+        StoreComponent,
+        CartDetailComponent,
+        CheckoutComponent
+    ]
 })
 export class StoreModule { }
