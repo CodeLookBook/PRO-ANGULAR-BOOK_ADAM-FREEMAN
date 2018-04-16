@@ -1,8 +1,9 @@
 import { NgModule          } from "@angular/core";
 import { ProductRepository } from "./product.repository";
 import { StaticDataSource  } from "./static.datasource";
-import { Cart } from "./cart.model";
-import { Order } from "./order.model";
+import { Cart              } from "./cart.model";
+import { Order             } from "./order.model";
+import { OrderRepository   } from "./order.repository";
 
 /*
 Декоратор @NgModule используется для создания функциональных
@@ -17,7 +18,8 @@ import { Order } from "./order.model";
         ProductRepository,
         StaticDataSource ,
         Cart,
-        Order
+        Order,
+        OrderRepository
     ]
 })
 export class ModelModule { }
