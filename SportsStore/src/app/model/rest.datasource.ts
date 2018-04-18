@@ -11,16 +11,34 @@ const PORT     = 3500;
 
 @Injectable()
 export class RestDataSource {
-    baseUrl : string;
+    baseUrl    : string;
+    auth_token : string;
 
     constructor(private http : Http) {
         this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`;
     }
 
+    authenticate(user : string, pass : string): Observable<boolean> {
+        return this.http.request(new Request({
+            method : RequestMethod.Post,
+            url    : this.baseUrl + "login",
+            body   : { name : user, password : pass }
+        })).map(response => {
+
+            const r = response.json();
+
+            this.auth_token = r.success ? r.token : null;
+
+            return r.success;
+        });
+    }
+
     private sendRequest(
         verb  : RequestMethod,
         url   : string,
-        body? : Product | Order): Observable<any> {
+        body? : Product | Order,
+        auth  : boolean = false
+    ): Observable<any> {
 
         return this.http.request(new Request({
             method: verb,
