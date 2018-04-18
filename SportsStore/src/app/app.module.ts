@@ -30,6 +30,17 @@ import { StoreFirstGuard } from "./store-first.guard";
         path: "checkout", component: CheckoutComponent,
         canActivate: [StoreFirstGuard]
       },
+      /**
+       * Новый маршрут сообщает Angular, что при переходе
+       * приложения на URL /admin следует загрузить
+       * функциональный модуль, определяемый классом с именем
+       * AdminModule из файла /app/admin/admin.module.ts
+       **/
+      {
+        path: "admin",
+        loadChildren: "app/admin/admin.module#AdminModule",
+        canActivate: [StoreFirstGuard]
+      },
       {
         path: "**"      , redirectTo: "/store",
       }
