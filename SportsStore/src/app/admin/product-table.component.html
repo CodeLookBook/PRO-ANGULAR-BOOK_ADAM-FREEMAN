@@ -1,0 +1,32 @@
+<table class="table table-sm table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of getProducts()">
+            <td>{{product.Id}}</td>
+            <td>{{product.Name}}</td>
+            <td>{{product.Category}}</td>
+            <td>{{product.Price}}</td>
+            <td>
+                <buttom class="btn btn-sm btn-warning"
+                    [routerLink]="['/admin/main/products/edit', p.Id]">
+                    Edit
+                </buttom>
+                <button class="btn btn-sm btn-danger"
+                    (click)="deleteProduct(p.Id)">
+                    Delete
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button class="btn btn-primaty" routerLink="/admin/main/products/create">
+    Create Neq Product
+</button>
