@@ -7,7 +7,7 @@ import { Order } from "./order.model";
 import "rxjs/add/operator/map";
 
 const PROTOCOL = "http";
-const PORT     = 3500;
+const PORT     = 3500  ;
 
 @Injectable()
 export class RestDataSource {
@@ -20,9 +20,9 @@ export class RestDataSource {
 
     authenticate(user : string, pass : string): Observable<boolean> {
         return this.http.request(new Request({
-            method : RequestMethod.Post,
-            url    : this.baseUrl + "login",
-            body   : { name : user, password : pass }
+            method: RequestMethod.Post,
+            url: this.baseUrl + "login",
+            body: { name: user, password: pass }
         })).map(response => {
 
             const r = response.json();
@@ -42,8 +42,8 @@ export class RestDataSource {
 
         return this.http.request(new Request({
             method: verb,
-            url   : this.baseUrl + url,
-            body  : body
+            url: this.baseUrl + url,
+            body: body
         })).map(response => response.json());
     }
 
@@ -51,7 +51,31 @@ export class RestDataSource {
         return this.sendRequest(RequestMethod.Get, "products");
     }
 
-   saveOrder(order : Order): Observable<Order> {
-       return this.sendRequest(RequestMethod.Post, "orders", order);
-   }
+    saveProduct(product : Product): Observable<Product> {
+        return this.sendRequest(RequestMethod.Post, "products", product, true);
+    }
+
+    updateProduct(product): Observable<Product> {
+        return this.sendRequest(RequestMethod.Put, `products/${product.id}`, product, true);
+    }
+
+    deleteProduct(id : number): Observable<Product> {
+        return this.sendRequest(RequestMethod.Delete, `products/${id}`, null, true);
+    }
+
+    getOrders(): Observable<Order[]> {
+        return this.sendRequest(RequestMethod.Get, `orders`, null, true);
+    }
+
+    deleteOrder(id : number): Observable<Order> {
+        return this.sendRequest(RequestMethod.Delete, `orders/${id}`, null, true);
+    }
+
+    updateOrder(order : Order): Observable<Order> {
+        return this.sendRequest(RequestMethod.Put, `orders/${order.id}`, order, true);
+    }
+
+    saveOrder(order : Order): Observable<Order> {
+        return this.sendRequest(RequestMethod.Post, "orders", order);
+    }
 }
