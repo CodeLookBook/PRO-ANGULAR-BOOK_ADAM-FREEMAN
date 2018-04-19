@@ -6,7 +6,7 @@ import { Router, ActivatedRouteSnapshot, RouterStateSnapshot } from "@angular/ro
  * Не допускает прямых переходов к функциям администрирования.
  */
 
- Injectable();
+ @Injectable()
  export class AuthGuard {
     constructor(
         private router : Router,
