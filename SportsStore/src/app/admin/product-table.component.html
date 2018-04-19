@@ -10,17 +10,17 @@
     </thead>
     <tbody>
         <tr *ngFor="let product of getProducts()">
-            <td>{{product.Id}}</td>
-            <td>{{product.Name}}</td>
-            <td>{{product.Category}}</td>
-            <td>{{product.Price}}</td>
+            <td>{{product.id}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.category}}</td>
+            <td>{{product.price}}</td>
             <td>
-                <buttom class="btn btn-sm btn-warning"
-                    [routerLink]="['/admin/main/products/edit', p.Id]">
+                <button class="btn btn-sm btn-warning"
+                    [routerLink]="['/admin/main/products/edit', product.id]">
                     Edit
-                </buttom>
+                </button>
                 <button class="btn btn-sm btn-danger"
-                    (click)="deleteProduct(p.Id)">
+                    (click)="deleteProduct(product.id)">
                     Delete
                 </button>
             </td>
