@@ -10,33 +10,34 @@
             name="name" 
             [(ngModel)]="product.name">
     </div>
+    <div class="form-group">
+        <label>Creategory</label>
+        <input type="text"
+            class="form-control"
+            name="category"
+            [(ngModel)]="product.category">
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <textarea class="form-control" 
+            name="description"
+            [(ngModel)]="product.description">
+        </textarea>
+    </div> 
+    <div class="form-group">
+        <label>Price</label>
+        <input class="form-control" 
+            name="price"
+            [(ngModel)]="product.price">
+    </div>
+    <button type="submit" 
+        class="btn btn-primary" 
+        [class.btn-warning]="editing">
+            {{editing ? "Save" : "Create"}}
+    </button> 
+    <button class="btn btn-secondary" 
+        type="reset" 
+        routerLink="/admin/main/products">
+        Cansel
+    </button>
 </form>
-<div class="form-group">
-    <label>Creategory</label>
-    <input type="text"
-        class="form-control"
-        name="category"
-        [(ngModel)]="product.category">
-</div>
-<div class="form-group">
-    <label>Description</label>
-    <input class="form-control" 
-        name="description"
-        [(ngModel)]="product.description">
-</div>
-<div class="form-group">
-    <label>Price</label>
-    <input class="form-control" 
-        name="price"
-        [(ngModel)]="product.price">
-</div>
-<button class="btn btn-primary" 
-    type="submit"
-    [class.btn-warning]="editing">
-    {{editing ? "Save" : "Create"}}
-</button>
-<button class="btn btn-secondary" 
-    type="reset" 
-    routerLink="/admin/main/products">
-    Cansel
-</button>
