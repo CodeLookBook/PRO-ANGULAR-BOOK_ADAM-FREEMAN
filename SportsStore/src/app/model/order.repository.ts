@@ -11,17 +11,19 @@ export class OrderRepository {
 
     constructor(private dataSource : RestDataSource) { }
 
-    loadORders() {
+    loadOrders() {
         this.loaded = true;
         this.dataSource
             .getOrders()
-            .subscribe(orders => this.orders = orders);
+            .subscribe(orders => {
+                this.orders = orders;
+            });
     }
 
     getOrders(): Order[] {
 
         if (!this.loaded) {
-            this.loadORders();
+            this.loadOrders();
         }
 
         return this.orders;
