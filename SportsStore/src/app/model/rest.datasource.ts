@@ -21,8 +21,8 @@ export class RestDataSource {
     authenticate(user : string, pass : string): Observable<boolean> {
         return this.http.request(new Request({
             method: RequestMethod.Post,
-            url: this.baseUrl + "login",
-            body: { name: user, password: pass }
+            url   : this.baseUrl + "login",
+            body  : { name: user, password: pass }
         })).map(response => {
 
             const r = response.json();
@@ -40,11 +40,20 @@ export class RestDataSource {
         auth  : boolean = false
     ): Observable<any> {
 
-        return this.http.request(new Request({
+        const request = new Request({
             method: verb,
-            url: this.baseUrl + url,
-            body: body
-        })).map(response => response.json());
+            url   : this.baseUrl + url,
+            body  : body
+        });
+
+        if (auth && this.auth_token != null) {
+            request.headers
+                .set("Authorization",  `Bearer<${this.auth_token}>`);
+        }
+
+        return this.http.request(request).map(responce => {
+            return responce.json();
+        });
     }
 
     getProducts(): Observable<Product[]> {
