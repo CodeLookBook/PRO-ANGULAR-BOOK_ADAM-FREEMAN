@@ -25,7 +25,6 @@
     "dependencies": {
         "lite-server": "2.3.0",
         "typescript": "2.8.3",
-        "typings": "2.1.1",
         "concurrently": "3.5.1"
     }
 }
