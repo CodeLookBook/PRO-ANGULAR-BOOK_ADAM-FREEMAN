@@ -1,0 +1,31 @@
+{
+    "scripts": {
+        "start": "concurrently \"npm run tscwatch\" \"npm run lite\" ",
+        "tsc": "tsc",
+        "tscwatch": "tsc -w",
+        "lite": "lite-server",
+        "typings": "typings",
+        "postinstall": "typings install"
+    },
+    "devDependencies": {
+        "@angular/common": "5.2.10",
+        "@angular/compiler": "5.2.10",
+        "@angular/core": "5.2.10",
+        "@angular/platform-browser": "5.2.10",
+        "@angular/platform-browser-dynamic": "5.2.10",
+        "@angular/upgrade": "5.2.10",
+        "reflect-metadata": "0.1.12",
+        "rxjs": "5.5.10",
+        "zone.js": "0.8.26",
+        "core-js": "2.5.5",
+        "classlist.js": "1.1.20150312",
+        "systemjs": "0.21.3",
+        "bootstrap": "4.0.0-alpha.4"
+    },
+    "dependencies": {
+        "lite-server": "2.3.0",
+        "typescript": "2.8.3",
+        "typings": "2.1.1",
+        "concurrently": "3.5.1"
+    }
+}
