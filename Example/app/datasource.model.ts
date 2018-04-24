@@ -13,7 +13,7 @@ export class SimpleDataSource {
         );
     }
 
-    getProduct(){
-        this.data;
+    getData(): Product[] {
+        return this.data;
     }
 }
