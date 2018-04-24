@@ -9,6 +9,9 @@ var Model = /** @class */ (function () {
         this.products = new Array();
         this.dataSource.getData().forEach(function (p) { return _this.products.push(p); });
     }
+    Model.prototype.getProducts = function () {
+        return this.products;
+    };
     Model.prototype.getProduct = function (id) {
         var _this = this;
         return this.products.find(function (p) { return _this.locator(p, id); });

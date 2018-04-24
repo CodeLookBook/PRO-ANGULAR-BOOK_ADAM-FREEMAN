@@ -13,6 +13,10 @@ export class Model {
         this.dataSource.getData().forEach(p => this.products.push(p));
     }
     
+    getProducts(): Product[] {
+        return this.products;
+    }
+
     getProduct(id: number): Product {
         return this.products.find(p => this.locator(p,id));
     }
