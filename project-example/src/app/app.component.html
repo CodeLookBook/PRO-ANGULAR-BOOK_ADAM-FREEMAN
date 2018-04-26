@@ -5,3 +5,17 @@
   <label>Name:</label>
   <input class="form-control" [value]="model.getProduct(1)?.name || 'None'" />
 </div>
+<table class="table table-sm table-bordered table-striped m-t-1">
+  <tr>
+    <th>1</th>
+    <th>2</th>
+    <th>3</th>
+    <th>4</th>
+    <th>5</th>
+  </tr>
+  <tr>
+    <td [attr.colspan]="model.getProducts().length">
+      {{model.getProduct(1)?.name || 'None'}} 
+    </td>
+  </tr>
+</table>
