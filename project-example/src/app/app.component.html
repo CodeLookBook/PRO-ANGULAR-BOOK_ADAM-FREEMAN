@@ -22,3 +22,10 @@
     </td>
   </tr>
 </table>
+
+<!--Использование специальной привязки класса-->
+<div class="p-a-1" 
+  [class.bg-success]="model.getProduct(2).price < 50"
+  [class.bg-info]="model.getProduct(2).price >= 50"> 
+  The second product is {{model.getProduct(2).name}} 
+</div>
