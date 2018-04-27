@@ -28,4 +28,15 @@ export class AppComponent {
       'bg-info': product.price < 50
     };
   }
+
+  getStyleMap(key: number) {
+
+    const product = this.model.getProduct(key);
+
+    return {
+      fontSize: '30px',
+      'margin.px': 100,
+      color: product.price > 50 ? 'red' : 'green'
+    };
+  }
 }
