@@ -8,7 +8,8 @@ import { Model } from './repository.model';
 })
 export class AppComponent {
   model: Model = new Model();
-
+  fontSizeWithUnits = '30px';
+  fontSizeWithoutUnits = '30';
   // getClasses(): string {
   //   return this.model.getProducts().length === 5 ? 'bg-success' : 'bg-warning';
   // }
