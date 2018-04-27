@@ -1,4 +1,4 @@
-<div [ngClass]="getClasses(1)"> 
+<!-- <div [ngClass]="getClasses(1)"> 
   There are {{model.getProducts().length}} products in the model 
 </div>
 <div [class]="getClasses(1)"> The first product is {{model.getProduct(1).name}}. </div>
@@ -21,17 +21,17 @@
       {{model.getProduct(1)?.name || 'None'}} 
     </td>
   </tr>
-</table>
+</table> -->
 
 <!--Использование специальной привязки класса-->
-<div class="p-a-1" 
+<!-- <div class="p-a-1" 
   [class.bg-success]="model.getProduct(2).price < 50"
   [class.bg-info]="model.getProduct(2).price >= 50"> 
   The second product is {{model.getProduct(2).name}} 
-</div>
+</div> -->
 
 <!-- Использование директивы ngClass -->
-<div class="p-a-1" [ngClass]="getClassMap(1)"> 
+<!-- <div class="p-a-1" [ngClass]="getClassMap(1)"> 
   The first product is {{model.getProduct(1).name}}. 
 </div>
 <div class="p-a-1" [ngClass]="getClassMap(2)"> 
@@ -40,4 +40,14 @@
 <div class="p-a-1" 
   [ngClass]="{'bg-success': model.getProduct(3).price < 50, 'bg-info': model.getProduct(3).price >= 50}">
   The third product is {{model.getProduct(3).name}} 
+</div> -->
+
+<!-- Использование привязок стилей -->
+<div class="p-a-1 bg-warning"> 
+  The <span [style.fontSize]="fontSizeWithUnits">first</span> 
+  product is {{model.getProduct(1).name}}. 
+</div>
+<div class="p-a-1 bg-info"> 
+  The <span [style.fontSize.px]="fontSizeWithoutUnits">second</span> 
+  product is {{model.getProduct(2).name}} 
 </div>
