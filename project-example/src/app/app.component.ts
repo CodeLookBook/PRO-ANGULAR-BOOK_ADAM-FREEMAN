@@ -8,7 +8,13 @@ import { Model } from './repository.model';
 })
 export class AppComponent {
   model: Model = new Model();
-  getClasses(): string {
-    return this.model.getProducts().length === 5 ? 'bg-success' : 'bg-warning';
+
+  // getClasses(): string {
+  //   return this.model.getProducts().length === 5 ? 'bg-success' : 'bg-warning';
+  // }
+
+  getClasses(key: number): string {
+    const product = this.model.getProduct(key);
+    return 'p-a-1 ' + (product.price < 50 ? 'bg-info' : 'bg-warning');
   }
 }
