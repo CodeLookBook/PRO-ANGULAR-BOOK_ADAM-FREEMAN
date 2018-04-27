@@ -17,4 +17,14 @@ export class AppComponent {
     const product = this.model.getProduct(key);
     return 'p-a-1 ' + (product.price < 50 ? 'bg-info' : 'bg-warning');
   }
+
+  getClassMap(key: number): Object {
+
+    const product = this.model.getProduct(key);
+
+    return {
+      'text-xs-center bg-danger': product.name === 'Kayak',
+      'bg-info': product.price < 50
+    };
+  }
 }
