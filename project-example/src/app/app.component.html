@@ -43,11 +43,21 @@
 </div> -->
 
 <!-- Использование привязок стилей -->
-<div class="p-a-1 bg-warning"> 
+<!-- <div class="p-a-1 bg-warning"> 
   The <span [style.fontSize]="fontSizeWithUnits">first</span> 
   product is {{model.getProduct(1).name}}. 
 </div>
 <div class="p-a-1 bg-info"> 
   The <span [style.fontSize.px]="fontSizeWithoutUnits">second</span> 
   product is {{model.getProduct(2).name}} 
+</div> -->
+
+<!-- Использование директивы ngStyle -->
+<div class="p-a-1 bg-warning"> 
+  The <span [ngStyle]="getStyleMap(1)">first</span> 
+  product is {{model.getProduct(1).name}}. 
+</div>
+<div class="p-a-1 bg-info"> 
+  The <span [ngStyle]="getStyleMap(2)">second</span> 
+  product is {{model.getProduct(2).name}}
 </div>
