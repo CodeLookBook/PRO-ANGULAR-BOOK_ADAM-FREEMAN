@@ -29,3 +29,15 @@
   [class.bg-info]="model.getProduct(2).price >= 50"> 
   The second product is {{model.getProduct(2).name}} 
 </div>
+
+<!-- Использование директивы ngClass -->
+<div class="p-a-1" [ngClass]="getClassMap(1)"> 
+  The first product is {{model.getProduct(1).name}}. 
+</div>
+<div class="p-a-1" [ngClass]="getClassMap(2)"> 
+  The second product is {{model.getProduct(2).name}}. 
+</div>
+<div class="p-a-1" 
+  [ngClass]="{'bg-success': model.getProduct(3).price < 50, 'bg-info': model.getProduct(3).price >= 50}">
+  The third product is {{model.getProduct(3).name}} 
+</div>
