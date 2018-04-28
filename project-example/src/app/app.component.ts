@@ -9,6 +9,7 @@ import { Product } from './product.model';
 })
 export class AppComponent {
   model: Model = new Model();
+  targetName: string = 'Kayak';
 
   constructor(ref: ApplicationRef) {
     (<any>window).appRef = ref;
@@ -25,5 +26,17 @@ export class AppComponent {
 
     return 'p-a-1 ' +
       (product.price < 50 ? 'bg-info' : 'bg-warning');
+  }
+
+  getProduct(key: number): Product {
+    return this.model.getProduct(key);
+  }
+
+  getProducts(): Product[] {
+    return this.model.getProducts();
+  }
+
+  getProductCount(): number {
+    return this.getProducts().length;
   }
 }
